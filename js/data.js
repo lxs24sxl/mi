@@ -2812,6 +2812,7 @@ var commentData = {
 		"name": "comment",
 		"title": "热评商品",
 		"listClass": "review-list",
+		"moreText":"",
 		"listId": "reviewList",
 		"childData": [
 			{
@@ -2864,6 +2865,7 @@ var contentData = {
 	"listId": "contentList",
 	"listClass": "content-list",
 	"title": "内容",
+	"moreText": "",
 	"typeArr": ["book","theme","game","app"],
 	"data": {
 		"book": {
@@ -3011,5 +3013,51 @@ var contentData = {
 				}
 			]
 		},
+	}
+}
+
+var videoData = {
+	"code": 200,
+	"result": "sccuess",
+	"data": {
+		"name": "video",
+		"title": "视频",
+		"listClass": "video-list",
+		"moreText": "查看全部",
+		"listId": "videoList",
+		"childData": [
+			{
+				"index": 1,
+				"isFrist": true,
+				"firstClass": "video-item-first",
+				"imgSrc": "images/comment/aa6b038a-2946-4549-acff-17c58e701556.jpg",
+				"title": "雷军与斯塔克打造全面屏2.0",
+				"desc": "一场关于小米MIX 2 极致工艺的巅峰对话"
+			},
+			{
+				"index": 2,
+				"isFrist": false,
+				"firstClass": "",
+				"imgSrc": "images/comment/aa6b038a-2946-4549-acff-17c58e701556.jpg",
+				"title": "雷军与斯塔克打造全面屏2.0",
+				"desc": "一场关于小米MIX 2 极致工艺的巅峰对话"
+			},
+			{
+				"index": 3,
+				"isFrist": false,
+				"firstClass": "",
+				"imgSrc": "images/comment/aa6b038a-2946-4549-acff-17c58e701556.jpg",
+				"title": "雷军与斯塔克打造全面屏2.0",
+				"desc": "一场关于小米MIX 2 极致工艺的巅峰对话"
+			},
+			{
+				"index": 4,
+				"isFrist": false,
+				"firstClass": "",
+				"imgSrc": "images/comment/aa6b038a-2946-4549-acff-17c58e701556.jpg",
+				"title": "雷军与斯塔克打造全面屏2.0",
+				"desc": "一场关于小米MIX 2 极致工艺的巅峰对话"
+			}
+		]
 	}
 }

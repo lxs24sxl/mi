@@ -408,6 +408,9 @@ window.onload = function () {
 			listView: [
 				'<div class="box-hd">',
 					'<h2 class="title">{#title#}</h2>',
+					'<div class="more">',
+						'<a class="more-link">{#moreText#}</a>',	
+					'</div>',
 				'</div>',
 				'<div class="box-bd">',
 					'<ul id="{#listId#}" class="{#listClass#} clearfix">',
@@ -490,7 +493,24 @@ window.onload = function () {
 					'<a class="btn btn-small btn-line-orange" href="#">{#btnText#}</a>',
 					'<img class="thumb" src="images/blank.gif" data-echo="{#imgSrc#}">',
 				'</li>'
-			].join('')
+			].join(''),
+			// 视频列表模块
+			videoListView: [
+				'<li class="video-item {#firstClass#}">',
+					'<div class="figure figure-img">',
+						'<a class="exposure" href="#">',
+							'<img src="{#imgSrc#}">',
+							'<span class="play">',
+								'<i class="icon-play"></i>',
+							'</span>',
+						'</a>',
+					'</div>',
+					'<h3 class="title">',
+						'<a href="#">{#title#}</a>',
+					'</h3>',
+					'<p class="desc">{#desc#}</p>',
+				'</li>'
+			].join("")
 
 		};
 		// 格式化字符串缓存字符串
@@ -1359,6 +1379,9 @@ window.onload = function () {
 	var reviewBox = new ListBox( "comment", commentData.data, ["listView","reviewItemView"]);
 	// 创建商品模块	
 	reviewBox.createBox();
+
+	var videoBox = new ListBox( "video", videoData.data, ["listView", "videoListView"]);
+	videoBox.createBox();
 
 
 	// 内容基类
