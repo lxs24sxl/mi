@@ -95,6 +95,33 @@ function hasClass ( ele, cls ) {
          return t;
 }
 
+// 4.1.getExplore
+/**
+ * @desc 获取浏览器类型和版本
+ * @return {String}
+ */
+ function getExplore() {
+ 	var sys = {},
+ 		ua = navigator.userAgent.toLowerCase(),
+ 		s;
+ 		// 利用正则截取对应的版本号
+ 		( s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[ 1 ]:
+ 		( s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[ 1 ]:
+ 		( s = ua.match(/chrome\/([\d\.]+)/)) ? sys.chrome = s[ 1 ]:
+ 		( s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[ 1 ]:
+ 		( s = ua.match(/(?:opera|opr).([\d.]+)/)) ? sys.opera = s[ 1 ]:
+ 		( s = ua.match(/edge\/([\d\.]+)/)) ? sys.edge = s[ 1 ]:
+ 		( s = ua.match(/version\/([\d\.]+).*safari/)) ? sys.safari = s[ 1 ] : 0;
+ 		// 根据关系进行判断
+ 		if ( sys.ie ) return ('IE: ' + sys.ie )
+ 		if ( sys.edge ) return ("Edge: " + sys.edge )  
+ 		if ( sys.chrome ) return ('Chrome: ' + sys.chrome )
+ 		if ( sys.firefox ) return ('Firefox: ' + sys.firefox ) 
+ 		if ( sys.opera ) return ('Opera: ' + sys.opera )
+ 		if ( sys.safari ) return ('Safari: ' + sys.safari )
+ 		return 'Unkonwn'; 
+ }
+ console.log( getExplore() );
 /**
  * @desc 深拷贝，支持常见类型
  * @param {Any} values
@@ -132,7 +159,15 @@ function deepClone(values) {
 
     throw new Error("Unable to copy values! Its type isn't supported.");
 }
-
+function getObjLength( obj ){
+    var count = 0;
+    for(var i in obj){
+        if(obj.hasOwnProperty(i)){
+            count++;
+        };
+    };
+    return count;   
+}
 
 /*属性样式方法库*/
 var S = {
@@ -400,7 +435,63 @@ window.onload = function () {
 						'</p>',
 					'</div>',
 				'</li>'
+			].join(''),
+			//  内容列表外容器
+			contentListView: [
+				'<li class="content-item{#isFirst#} content-item-{#type#}">',
+					'<h2 class="title">{#title#}</h2>',
+					'<div class="xs-carousel-wrapper">',
+						'<ul id="itemList{#index#}" class="item-list clearfix" style="width: 888px;margin-left: 0px;transition: margin-left 0.5s ease">',
+						'</ul>',
+					'</div>',
+					'<div class="xs-pagers-wrapper">',
+						'<ul id="xsPagers{#index#}" class="xs-pagers">',
+						'</ul>',
+					'</div>',
+					'<div id="sControls{#index#}" class="xs-controls xs-controls-block-small xs-carousel-controls">',
+						'<a class="control control-prev control-disable">',
+							'<span>上一张</span>',
+						'</a>',
+						'<a class="control control-next">',
+							'<span>下一张</span>',
+						'</a>',
+					'</div>',
+				'</li>'
+			].join(''),
+			// 内容轮播图焦点模块
+			pagerCarouselView: [
+				'<li class="pager">',
+					'<span class="dot">{#index#}</span>',
+				'</li>'
+			].join(''),
+			// 内容区轮播图内容模块
+			contentItemListView: [
+				'<li>',
+					'<h4 class="name">',
+						'<a href="#" class="exposure">{#name#}</a>',
+					'</h4>',
+					'<p class="desc">',
+						'<a href="#">{#desc#}</a>',
+					'</p>',
+					'<p class="price">',
+						'<a href="#">{#price#}</a>',
+					'</p>',
+					'<div class="figure figure-img">',
+						'<a href="#">',
+							'<img src="images/blank.gif" data-echo="{#imgSrc#}" alt="{#name#}">',
+						'</a>',
+					'</div>',
+				'</li>'
+			].join(''),
+			// 内容区轮播图内容模块最底部
+			contentItemListEndView: [
+				'<li class="more">',
+					'<p class="desc">{#desc#}</p>',
+					'<a class="btn btn-small btn-line-orange" href="#">{#btnText#}</a>',
+					'<img class="thumb" src="images/blank.gif" data-echo="{#imgSrc#}">',
+				'</li>'
 			].join('')
+
 		};
 		// 格式化字符串缓存字符串
 		var html = '';
@@ -479,7 +570,8 @@ window.onload = function () {
 					for ( var i = 0, len = data.length; i < len; i++ ) {
 						html += formateString( tpl[ view ], data[ i ]);
 					}
-				} else {
+				} 
+				else {
 					html += formateString( tpl[ view ], data[ i ]);
 				}
 			},
@@ -524,8 +616,8 @@ window.onload = function () {
 			// 主要商品内容区-初步整体模块
 			createBrickBox: function ( data, view ) {
 				var dataLen = data.length;
-				console.log( dataLen );
-				if ( dataLen ) {
+				// console.log( dataLen );
+				if (dataLen ) {
 					for ( var i = 0; i < dataLen; i++ ) {
 						html += formateString( tpl[ view ], data[ i ] );
 					}
@@ -558,6 +650,65 @@ window.onload = function () {
 				}
 				document.getElementById( container ).innerHTML = html;
 				html = "";
+			},
+			// 创建内容模块
+			createContentBox: function ( obj, view ) {
+				if ( obj ) {
+					for ( var i in obj ) {
+						html += formateString( tpl[ view ], obj[ i ] );
+					}
+				}
+			},
+			createPagers: function ( obj, view ) {
+				if ( obj ) {
+					for ( var i in obj ) {
+						html += formateString( tpl[ view ], obj[ i ]);
+					}
+				}
+				console.log( getObjLength( obj ) );
+			},
+			createContentList: function ( data, viewList ) {
+				var len = data.length,
+					view1 = viewList[ 0 ];
+				if ( len ) {
+					for ( var i = 0; i < len - 1; i++  ){
+						html += formateString( tpl[ view1 ], data[ i ]);
+					}
+					html += formateString( tpl[ viewList[ 1 ]], data[ len - 1 ]);
+				}
+			},
+			// 插入内容模块到容器
+			insertContentBox: function ( container, obj, view ) {
+				if ( obj ) {
+					this.createContentBox( obj, view );
+				} else {
+					new Error( "数据出错");
+				}
+				document.getElementById( container).innerHTML = html;
+				html = "";
+				// 插入焦点按钮
+				var pagers,ItemList;
+				for ( var i in obj ) {
+					// 创建焦点图模板
+					this.createPagers( obj[ i ].data, "pagerCarouselView");
+					// 获得当前list的pager
+					pagers = document.getElementById( "xsPagers" + obj[ i ].index );
+					// 插入焦点按钮
+					pagers.innerHTML = html;
+					// 默认第一个按钮为激活状态
+					addClass( pagers.firstChild, "pager-active");
+					html = "";
+
+					// 创建列表模板
+					this.createContentList( obj[ i ].data, ["contentItemListView","contentItemListEndView"]);
+					// 获得当前list
+					itemList = document.getElementById( 'itemList' + obj[ i ].index );
+					itemList.style.cssText = "width: " + obj[ i ].width  + "px;margin-left: 0px;transition: margin-left 0.5s ease";
+					// 插入列表
+					itemList.innerHTML = html;
+					// 初始化html
+					html = "";
+				}
 			}
 		};
 		// 命令接口
@@ -955,7 +1106,7 @@ window.onload = function () {
 			});
 		}
 	}
-	// 明星商品类
+	// 商品类
 	var ProduceLists = function (container, datas ) {
 		// 构造函数继承轮播列表类
 		LoopLists.call( this, container, datas );
@@ -963,27 +1114,32 @@ window.onload = function () {
 
 	ProduceLists.prototype = new LoopLists();
 
-
+	// 明星商品
 	var starCarousel = new ProduceLists( "starGoods", carouselData.data.starData );
 	starCarousel.createList();
-
+	// 为你推荐
 	var recCarousel = new ProduceLists( "recommend", carouselData.data.recommend );
 	recCarousel.createList();
 
-
+/****************************************************************************************/
+	// 主页区块类
 	var HomeBrickBoxs = function ( container, datas ) {
 		this.container = container;
 		this.datas = datas;
 	}
+	// 修改主页区块类的原型
 	HomeBrickBoxs.prototype = {
+		// 初始化外层容器
 		createBox : function () {
 			viewCommand({
 				command: "insertBrickBox",
 				param: [ this.container, jsonToArr(this.datas), "homeBrickHdView"]
 			});
+			// 执行补全视图及动画方法
 			this.insertDatas();
 
 		},
+		// 补全视图及动画
 		insertDatas: function () {
 
 			var datas = this.datas,					// 获取数据
@@ -1003,22 +1159,24 @@ window.onload = function () {
 				var oLi = document.createElement( "li" );
 				var oUl = document.createElement( "ul" );
 				oLi.appendChild( document.createTextNode( tabListData[ i ]));
+				// 初始化第一个导航和第一个内容为激活状态，其余为隐藏状态
 				if ( i == 0 ) {
 					addClass(oLi, "tab-active");
 					addClass(oUl, "brick-list clearfix tab-content tab-content-active");
 				} else {
 					addClass(oUl, "brick-list clearfix tab-content tab-content-hide");
 				}
+				// 插入某个导航
 				tabList.appendChild(oLi);
-
+				// 插入
 				brickListBox.appendChild( oUl );
 				
 			}
 			// 当侧边图片的数量为1的时候，显示长图片
 			this.createPromoList( promoListImgSrc, promoList );
 
-			/**/
-			var brickList = toArray(brickListBox.children);
+			/*插入内容区*/
+			var brickList = toArray(brickListBox.children);			// 获取
 				brickListLen = brickList.length;
 
 			var createBrickList = function ( index ) {
@@ -1078,7 +1236,7 @@ window.onload = function () {
 						preventDefault( e );
 
 
-						/*----------------------------------------------*/
+						/************************************/
 						if ( !oHideBrick[ x ]) {
 							oHideBrick[ x ] = brickList[ x ];
 
@@ -1130,17 +1288,23 @@ window.onload = function () {
 				} else {
 					new Error( "现阶段不允许展示2张图片以上" );
 				}
+				// 添加class属性
 				addClass( oA, "exposure");
 				oA.href = "#";
+				// 默认显示blank.gif
 				oImg.src = "images/blank.gif";
+				// 设置data-echo属性，实质是图片路径
 				oImg.setAttribute("data-echo",promoListImgSrc[ i ] )
+				// 插入图片
 				oA.appendChild( oImg );
 				oLi.appendChild( oA );
 				( function ( x ){
+					// 鼠标进入激活item列表
 					addHandler( oLi, "mouseenter", function ( e ) {
 						preventDefault( e );
 						addClass( oLi, "brick-item-active" );
 					});
+					// 鼠标进入取消激活item列表
 					addHandler( oLi, "mouseleave", function ( e ) {
 						preventDefault( e );
 						removeClass( oLi, "brick-item-active" );
@@ -1167,29 +1331,18 @@ window.onload = function () {
 	// 配件模块实例
 	var accessories = new BrickBoxs( "accessories",pageData.accessories );
 	accessories.createBox();
+/*************************************************************************************/
 
-	// var commentView = ( function ( data ) {
-	// 	var conf = {
-	// 		comment: document.getElementById( "comment" )
-	// 	};
-	// 	viewCommand({
-	// 		command: "displayReview",
-	// 		param: [ "comment", jsonToArr( data ), "listView"]
-	// 	});
-	// 	viewCommand({
-	// 		command: "displayReview",
-	// 		param: [ "reviewList", jsonToArr( data.childData ) , "reviewItemView"]
-	// 	});
 
-	// })( commentData.data );
+/*************************************************************************************/
+	// 热评类
 	var ListBox = function ( container, data, viewList ) {
-		this.container = container;
-		this.data = jsonToArr( data );
-		this.viewList = viewList;
+		this.container = container || "";
+		this.data = jsonToArr( data ) || [];
+		this.viewList = viewList || [];
 	}
 	ListBox.prototype = {
 		createBox: function () {
-
 			viewCommand({
 				command: "displayReview",
 				param: [ this.container,  this.data , this.viewList[ 0 ]]
@@ -1201,53 +1354,139 @@ window.onload = function () {
 			});
 		}
 	}
+
+	// 热评商品类
 	var reviewBox = new ListBox( "comment", commentData.data, ["listView","reviewItemView"]);
+	// 创建商品模块	
 	reviewBox.createBox();
 
-	// 4.1.getExplore
-	/**
-	 * @desc 获取浏览器类型和版本
-	 * @return {String}
-	 */
-	 function getExplore() {
-	 	var sys = {},
-	 		ua = navigator.userAgent.toLowerCase(),
-	 		s;
-	 		// 利用正则截取对应的版本号
-	 		( s = ua.match(/rv:([\d.]+)\) like gecko/)) ? sys.ie = s[ 1 ]:
-	 		( s = ua.match(/msie ([\d.]+)/)) ? sys.ie = s[ 1 ]:
-	 		( s = ua.match(/chrome\/([\d\.]+)/)) ? sys.chrome = s[ 1 ]:
-	 		( s = ua.match(/firefox\/([\d.]+)/)) ? sys.firefox = s[ 1 ]:
-	 		( s = ua.match(/(?:opera|opr).([\d.]+)/)) ? sys.opera = s[ 1 ]:
-	 		( s = ua.match(/edge\/([\d\.]+)/)) ? sys.edge = s[ 1 ]:
-	 		( s = ua.match(/version\/([\d\.]+).*safari/)) ? sys.safari = s[ 1 ] : 0;
-	 		// 根据关系进行判断
-	 		if ( sys.ie ) return ('IE: ' + sys.ie )
-	 		if ( sys.edge ) return ("Edge: " + sys.edge )  
-	 		if ( sys.chrome ) return ('Chrome: ' + sys.chrome )
-	 		if ( sys.firefox ) return ('Firefox: ' + sys.firefox ) 
-	 		if ( sys.opera ) return ('Opera: ' + sys.opera )
-	 		if ( sys.safari ) return ('Safari: ' + sys.safari )
-	 		return 'Unkonwn'; 
-	 }
-	 console.log( getExplore() );
 
+	// 内容基类
+	var ContentBox = function ( container, data, viewList ) {
+		ListBox.call( this, container, data, viewList );
+	}
+	ContentBox.prototype = new ListBox();
+	// 重写继承的创建模块方法
+	ContentBox.prototype.createBox = function() {
+			viewCommand({
+				command: "displayReview",
+				param: [ this.container, this.data, this.viewList[0]]
+			});
+			viewCommand({
+				command: "insertContentBox",
+				param: [ this.data.listId, this.data.data, this.viewList[ 1 ] ]
+			});
+			this.createBoxAnim();
+	}
+	// 添加动画效果
+	ContentBox.prototype.createBoxAnim = function () {
+			// 获得内容区
+		var contentList =  document.getElementById( "contentList" ),
+			// 获得内容区的外层列表
+			contentListLi = toArray( contentList.children ),
+			// 获得内容区的外层列表的长度
+			listLiLen = contentListLi.length,
+			controlsBtn, xsPargers;
+			// 左右按钮
+		for ( var i = 1; i <= listLiLen; i++ ) {
+			( function ( ind ,data  ) { 
+				// 获得当前列表的按钮元素
+			 var controlsBtn = toArray( document.getElementById( "sControls" + ind ).children ),
+				// 获取当前列表的焦点图按钮元素
+				xsPagers = toArray( document.getElementById( "xsPagers" + ind ).children ),
+				itemList = document.getElementById("itemList" + ind );
 
+				var oldPagers = xsPagers[ 0 ],
+					listWidth = data.data[ data.typeArr[  ind - 1 ] ].width;
+				
+				var listLen = xsPagers.length,
+					anim = {
+						index: 0,
+						curLeft: 0,
+						styleStr:"",
+						prev: function () {
+							// 存储局部变量，减少遍历
+							var index = this.index;
+							// 当当前下标大于0时，下标减一
+							index = ( index > 0 )? index - 1: 0; 
+							// 执行动画
+							this.changeTo( index );
+						},
+						next: function () {
+							// 存储局部变量，减少遍历
+							var index = this.index;
+							// 当index 大于等于最后一个数的时候，index等于最后一个值，否则加一
+							index = ( index >= listLen - 1 )? listLen - 1: index + 1;
+							// 执行动画
+							this.changeTo( index );
+						},
+						changeTo: function ( index ) {
+							// 存储当前的marginLeft值
+							this.curLeft = -index * 296;
+							// 改变当前下标
+							this.index = index;
+							// 存储当前cssText
+							this.styleStr = "width: " + listWidth + "px;margin-left: " + this.curLeft + "px;transition: margin-left 0.5s ease"
+							// 改变样式，执行动画
+							itemList.style.cssText = this.styleStr;
+							// 存储当前焦点
+							var newPagers = xsPagers[ index ];
+							// 当点击的焦点不为同一个时，执行逻辑
+							if ( !(oldPagers == newPagers) ) {
+								// 为点击的焦点添加激活状态
+								addClass( newPagers, "pager-active");
+								// 将之前的焦点移除激活状态
+								removeClass( oldPagers, "pager-active");
+								// 存储当前焦点按钮
+								oldPagers = newPagers;
+							}
+						}
+					}
+				// 遍历按钮元素
+				for ( var j = 0, len = controlsBtn.length; j < len; j++) {
+					( function ( z ) {
+						// 添加点击事件
+						addHandler( controlsBtn[ z ], "click", function () {
+							// 当点击为上一张按钮时
+							if ( z == 0 ) {		
+								anim.prev();
+							// 当点击为上一张按钮时
+							} else {
+								anim.next();
+							}
+						});
+					})( j );
+				}
+				
+				for ( var n = 0, len = xsPagers.length; n < len; n++ ) {
+					( function ( z ) {
+						// 添加点击事件
+						addHandler( xsPagers[ z ], "click", function () {
+							anim.changeTo( z );
+							Echo.init({ offset: 0, throttle: 3000 });
+						});
+					})( n );
+				}
 
+			})( i, this.data );
+		}	
+	}
+	var contentBox = new ContentBox( "content", contentData, ["listView", "contentListView"]);
+	contentBox.createBox();
 
-	 Echo.init({
-
-	 	offset: 0,
-
-	 	throttle: 3000
-
-	 });
-
-
+	Echo.init({offset: 0,throttle: 3000 });
 };
+/*************************************************************************************/
 
 
+
+
+
+/****************************************************************/
 // todo: 未加载的时候，判断浏览器版本，IE8以下显示提示框
+/****************************************************************/
+
+
 /*滚动节流处理*/
 var timer;
 

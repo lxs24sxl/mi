@@ -2857,3 +2857,159 @@ var commentData = {
 		]
 	}
 }
+
+var contentData = {
+	"code": 200,
+	"result": "success",
+	"listId": "contentList",
+	"listClass": "content-list",
+	"title": "内容",
+	"typeArr": ["book","theme","game","app"],
+	"data": {
+		"book": {
+			"index": 1,
+			"title": "图书",
+			"isFirst": " content-item-first",
+			"type": "book",
+			"width": 888,
+			"data": [
+				{
+					"index": 1,
+					"name": "哈利·波特与被诅咒的孩子",
+					"desc": "“哈利·波特”第八个故事中文版震撼来袭！特别彩排版剧本！",
+					"price": "29.37元",
+					"imgSrc": "images/content/book/5e5da924-84e3-4959-9e25-5891cdf30757.png",
+				},
+				{
+					"index": 2,
+					"name": "好吗好的",
+					"desc": "畅销作家大冰2016年新书！讲给你听，好吗好的！",
+					"price": "17.99元",
+					"imgSrc": "images/content/book/61e1385e-54de-48f3-8717-5e4f4b1cdd14.png",
+				},
+				{
+					"index": 3,
+					"name": "",
+					"desc": "海量好书，享受精品阅读时光<br>漂亮的中文排版，千万读者选择",
+					"btnText": "前往多看阅读",
+					"price": "",
+					"imgSrc": "images/content/book/5e5da924-84e3-4959-9e25-5891cdf30757.png",
+				}
+			]
+		},
+		"theme": {
+			"index": 2,
+			"title": "MIUI 主题",
+			"isFirst":"",
+			"width": 1184,
+			"type": "theme",
+			"data": [
+				{
+					"index": 1,
+					"name": "米奇-有你有我",
+					"desc": "米奇来啦！小米主题和迪士尼首度合作，打造精品迪士尼系列主题",
+					"price": "12米币",
+					"imgSrc": "images/content/theme/xmad_15106277789889_NVKse.png",
+				},
+				{
+					"index": 2,
+					"name": "钢铁侠-科技控",
+					"desc": "I'm Iron Man! 小米主题和迪士尼首度合作，打造精品漫威系列主题",
+					"price": "12米币",
+					"imgSrc": "images/content/theme/xmad_15106285428716_UgNzb.png",
+				},
+				{
+					"index": 3,
+					"name": "大白-戳戳我抱抱你",
+					"desc": " 大白(●—●)吧啦啦啦~小米主题和迪士尼首度合作，打造精品迪士尼系列主题",
+					"price": "15米币",
+					"imgSrc": "images/content/theme/xmad_151062859387_ECIuV.png",
+				},
+				{
+					"index": 4,
+					"name": "",
+					"desc": "众多个性主题、百变锁屏与自由桌面<br>让你的手机与众不同！",
+					"btnText": "前往MIUI主题市场",
+					"price": "",
+					"imgSrc": "images/content/theme/more-miui.jpg",
+				}
+			]
+		},
+		"game": {
+			"index": 3,
+			"title": "游戏",
+			"isFirst":"",
+			"type": "game",
+			"width": 1184,
+			"data": [
+				{
+					"index": 1,
+					"name": "小米超神",
+					"desc": "实力派！一起团!",
+					"price": "",
+					"imgSrc": "images/content/game/xmad_15120234492499_MNEVo.png",
+				},
+				{
+					"index": 2,
+					"name": "小米枪战",
+					"desc": "组好队  去跳伞！！",
+					"price": "免费",
+					"imgSrc": "images/content/game/xmad_15094191317724_FNyjV.png",
+				},
+				{
+					"index": 3,
+					"name": "米柚手游模拟器",
+					"desc": "在电脑上玩遍小米所有手游",
+					"price": "免费",
+					"imgSrc": "images/content/game/T1czW_BXCv1R4cSCrK.png",
+				},
+				{
+					"index": 4,
+					"name": "",
+					"desc": "免费下载海量的手机游戏<br>天天都有现金福利赠送",
+					"btnText": "前往小米游戏商店",
+					"price": "",
+					"imgSrc": "images/content/game/more-game.jpg",
+				}
+			]
+		},
+		"app": {
+			"index": 4,
+			"title": "应用",
+			"isFirst":"",
+			"type": "app",
+			"width": 1184,
+			"data": [
+				{
+					"index": 1,
+					"name": "2017金米奖",
+					"desc": "最优秀的应用和游戏",
+					"price": "",
+					"imgSrc": "images/content/app/3332da7d-4056-4694-9548-c83b7b3af7d3.png",
+				},
+				{
+					"index": 2,
+					"name": "Forest",
+					"desc": "帮助您专心于生活中每个重要时刻",
+					"price": "免费",
+					"imgSrc": "images/content/app/T1TkKvBCKv1R4cSCrK.png",
+				},
+				{
+					"index": 3,
+					"name": "小米应用",
+					"desc": "小米出品 必属精品",
+					"price": "免费",
+					"imgSrc": "images/content/app/T15VZvB5Kv1R4cSCrK.png",
+				},
+				{
+					"index": 4,
+					"name": "",
+					"desc": "帮助小米手机和其他安卓手机用户<br>发现好用的安卓应用",
+					"btnText": "前往小米应用商店",
+					"price": "",
+					"imgSrc": "images/content/app/more-app.jpg",
+				}
+			]
+		},
+	}
+}

@@ -1226,7 +1226,7 @@ del {
     font-weight: 400;
     text-align: center;
 }
-.content-item .xs-category-wrapper {
+.content-item .xs-carousel-wrapper {
 	height: 340px;
 	overflow: hidden;
 }
@@ -1419,6 +1419,7 @@ del {
 }
 .content-item .xs-controls .control:hover {
 	background: #666;
+	cursor: pointer;
 }
 .xs-controls-block-small .control span {
 	position: absolute;
