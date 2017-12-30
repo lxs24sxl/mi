@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小米MIX 2 - 小米商城</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/mix2.css">
+</head>
+<body>
+	<div class="xs-topbar">
+		<div class="container">
+			<!-- 顶部 -->
+			<div class="topbar-nav">
+				<a href="#">小米商城</a>
+				<span class="sep">|</span>
+				<a href="#">MIUI</a>
+				<span class="sep">|</span>
+				<a href="#">米聊</a>
+				<span class="sep">|</span>
+				<a href="#">游戏</a>
+				<span class="sep">|</span>
+				<a href="#">多看阅读</a>
+				<span class="sep">|</span>
+				<a href="#">云服务</a>
+				<span class="sep">|</span>
+				<a href="#">金融</a>
+				<span class="sep">|</span>
+				<a href="#">米币</a>
+				<span class="sep">|</span>
+				<a href="#">小米商城手机版</a>
+				<span class="sep">|</span>
+				<a href="#">问题反馈</a>
+				<span class="sep">|</span>
+				<a href="#">Select Region</a>
+			</div>
+			<div class="topbar-cart" id="topbarCart">
+				<a href="#" class="cart-mini" id="miniCartTrigger">
+					<i></i>
+					购物车
+					<span class="cartNum">(0)</span>
+				</a>
+				<div class="cart-menu" id="miniCartMenu" style="display: none;">
+					<div class="loading">
+						购物车中还没有商品，赶紧选购吧！
+					</div>
+				</div>
+			</div>
+			<div class="topbar-info">
+				<a href="#">登录</a>
+				<span class="sep"></span>
+				<a href="#">注册</a>
+				<span class="sep"></span>
+				<a href="#">消息通知</a>
+			</div>
+			<div class="xs-clear"></div>
+		</div>
+	</div>
+	<!-- 内容区顶部 -->
+	<div class="xs-header">
+		<div class="container">
+			<div class="header-logo">
+				<a href="#" class="logo">
+					<!-- <span class="icon-logo"></span> -->
+					小米官网
+				</a>
+				<div class="doodle" style="display: none;">
+					<a href="#" style="" class="exposure link-block"></a>
+				</div>
+			</div>
+			<!-- 导航区 -->
+			<div class="header-nav ">
+				<ul id="navList" class="nav-list clearfix">
+					<li class="nav-category">
+						<a class="link-category" style="visibility: visible;" href="#">
+							<span>全部商品分类</span>
+						</a>
+						<div class="xs-category">
+							<ul id="navCategory" class="xs-category-list clearfix">
+								<li class="category-item">
+									<a href="#" class="title">
+										手机 电话卡
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										笔记本
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										电视 盒子
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										路由器 智能硬件
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										移动电源 电池 插线板
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										耳机 音箱
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										保护套 贴膜
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										线材 支架 存储卡
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										箱包 服饰 鞋 眼镜
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+								<li class="category-item">
+									<a href="#" class="title">
+										米兔 生活周边
+										<span class="xs-icon-right"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>小米手机</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>红米</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>笔记本</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>电视</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>盒子</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>新品</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>路由器</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>智能硬件</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>服务</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="link" href="#">
+							<span>社区</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="header-search"></div>
+			<!-- 隐藏层 -->
+			<div id="navMenu" class="header-nav-menu header-nav-menu-acitve">
+				<div class="container">
+					<ul id="childrenList" class="children-list">
+						<!-- 插入的导航代码 -->
+						<!-- <li>
+							<div class="figure figure-thumb">
+								<a href="#">
+									<img src="images/navlist/mPhone/mix2320-220.png">
+								</a>
+							</div>
+							<div class="title">
+								<a href="#">
+									小米MIX 2
+								</a>
+							</div>
+							<p class="price">3299起</p>
+							<div class="flags">
+								<div class="flag">新品</div>
+							</div>
+						</li>
+						<li>
+							<div class="figure figure-thumb">
+								<a href="#">
+									<img src="images/navlist/mPhone/mix2320-220.png">
+								</a>
+							</div>
+							<div class="title">
+								<a href="#">
+									小米MIX 2
+								</a>
+							</div>
+							<p class="price">3299起</p>
+							<div class="flags">
+								<div class="flag">新品</div>
+							</div>
+						</li>
+						<li>
+							<div class="figure figure-thumb">
+								<a href="#">
+									<img src="images/navlist/mPhone/mix2320-220.png">
+								</a>
+							</div>
+							<div class="title">
+								<a href="#">
+									小米MIX 2
+								</a>
+							</div>
+							<p class="price">3299起</p>
+							<div class="flags">
+								<div class="flag">新品</div>
+							</div>
+						</li>
+						<li>
+							<div class="figure figure-thumb">
+								<a href="#">
+									<img src="images/navlist/mPhone/mix2320-220.png">
+								</a>
+							</div>
+							<div class="title">
+								<a href="#">
+									小米MIX 2
+								</a>
+							</div>
+							<p class="price">3299起</p>
+							<div class="flags">
+								<div class="flag">新品</div>
+							</div>
+						</li>
+						<li>
+							<div class="figure figure-thumb">
+								<a href="#">
+									<img src="images/navlist/mPhone/mix2320-220.png">
+								</a>
+							</div>
+							<div class="title">
+								<a href="#">
+									小米MIX 2
+								</a>
+							</div>
+							<p class="price">3299起</p>
+							<div class="flags">
+								<div class="flag">新品</div>
+							</div>
+						</li>
+					<div class="xs-clear"></div> -->
+					</ul>
+				</div>
+			</div>
+			<div class="xs-clear"></div>
+		</div>
+	</div>
+	<div id="proHeader">
+		<div class="xs-product-box">
+			
+			<div class="nav-bar">
+				<div class="container">
+					<h2 class="proName">小米MIX 2</h2>
+					<div class="con">
+						<div class="left">
+							<span class="sepatator">|</span>
+							<a href="#">小米MIX 2 斯塔克限量版</a>
+						</div>
+						<div class="right">
+							<a href="#" class="cur">概述</a>
+							<span class="separator">|</span>
+							<a href="#">图集</a>
+							<span class="separator">|</span>
+							<a href="#">参数</a>
+							<span class="separator">|</span>
+							<a href="#">F码通道</a>
+							<span class="separator">|</span>
+							<a href="#">用户评价</a>
+							<a href="#" class="btn btn-small btn-primary">立即购买</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="xs-product-box nav-bar-hidden" id="fixNarBar">
+			
+			<div class="nav-bar">
+				<div class="container">
+					<h2 class="proName">小米MIX 2</h2>
+					<div class="con">
+						<div class="left">
+							<span class="sepatator">|</span>
+							<a href="#">小米MIX 2 斯塔克限量版</a>
+						</div>
+						<div class="right">
+							<a href="#" class="cur">概述</a>
+							<span class="separator">|</span>
+							<a href="#">图集</a>
+							<span class="separator">|</span>
+							<a href="#">参数</a>
+							<span class="separator">|</span>
+							<a href="#">F码通道</a>
+							<span class="separator">|</span>
+							<a href="#">用户评价</a>
+							<a href="#" class="btn btn-small btn-primary">立即购买</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!--[if lt IE 9]>
+	<script>window.location='update-browser.html';</script>
+	<![endif]-->
+	<div class="mix2 mix2-index" id="S_indexBody">
+		<div class="section section-header">
+			<div class="container">
+				<div class="slide-outer">
+					
+					<div class="ui-wrapper">
+						<div id="heaederSlide" class="slide">
+							<div class="slide">
+								<div class="slider slider-01">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="title title-style-01">
+					<h1 class="phantom-item-2">
+						<span class="text">小米MIX 2</span>
+					</h1>
+					<h2 class="phantom-item-3">
+						<span class="text">全面屏 黑科技</span>
+					</h2>
+					<p class="phantom-item-4">
+						<span class="text">正面几乎全是屏幕，仿佛握着一块透明玻璃</span>
+					</p>
+					<div class="price phantom-item-4">
+						<div>
+							<span class="text">
+								<i class="price-num num">3299</i>
+								元起
+							</span>
+							<span class="text">黑色陶瓷版</span>
+						</div>
+
+						<div>
+							<span class="text">
+								<i class="price-num num">4699</i>
+								元起
+							</span>
+							<span class="text">全陶瓷尊享版</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="xs-footer">
+		<div class="container">
+			<div class="footer-service">
+				<ul class="list-service clearfix">
+					<li>
+						<a href="#">预约维修服务</a>
+					</li>
+					<li>
+						<a href="#">预约维修服务</a>
+					</li>
+					<li>
+						<a href="#">预约维修服务</a>
+					</li>
+					<li>
+						<a href="#">预约维修服务</a>
+					</li>
+					<li>
+						<a href="#">预约维修服务</a>
+					</li>
+				</ul>
+			</div>
+			<div class="footer-links clearfix">
+				<dl class="col-links col-links-first">
+					<dt>帮助中心</dt>
+					<dd>
+						<a href="#">账户管理</a>
+					</dd>
+					<dd>
+						<a href="#">购物指南</a>
+					</dd>
+					<dd>
+						<a href="#">订单操作</a>
+					</dd>
+				</dl>
+				<dl class="col-links">
+					<dt>帮助中心</dt>
+					<dd>
+						<a href="#">账户管理</a>
+					</dd>
+					<dd>
+						<a href="#">购物指南</a>
+					</dd>
+					<dd>
+						<a href="#">订单操作</a>
+					</dd>
+				</dl>
+				<dl class="col-links">
+					<dt>帮助中心</dt>
+					<dd>
+						<a href="#">账户管理</a>
+					</dd>
+					<dd>
+						<a href="#">购物指南</a>
+					</dd>
+					<dd>
+						<a href="#">订单操作</a>
+					</dd>
+				</dl>
+				<dl class="col-links">
+					<dt>帮助中心</dt>
+					<dd>
+						<a href="#">账户管理</a>
+					</dd>
+					<dd>
+						<a href="#">购物指南</a>
+					</dd>
+					<dd>
+						<a href="#">订单操作</a>
+					</dd>
+				</dl>
+				<dl class="col-links">
+					<dt>帮助中心</dt>
+					<dd>
+						<a href="#">账户管理</a>
+					</dd>
+					<dd>
+						<a href="#">购物指南</a>
+					</dd>
+					<dd>
+						<a href="#">订单操作</a>
+					</dd>
+				</dl>
+				<dl class="col-links">
+					<dt>帮助中心</dt>
+					<dd>
+						<a href="#">账户管理</a>
+					</dd>
+					<dd>
+						<a href="#">购物指南</a>
+					</dd>
+					<dd>
+						<a href="#">订单操作</a>
+					</dd>
+				</dl>
+				<div class="col-contact">
+					<p class="phone">400-100-5678</p>
+					<p>
+						周一至周日 8:00-18:00<br>（仅收市话费）
+					</p>
+					<a href="#" class="btn btn-line-primary btn-small">
+						24小时在线客服
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="xs-info">
+		<div class="container">
+			<div class="logo">小米官网</div>
+			<div class="info-text">
+				<p class="sites">
+					<a href="#">小米商城</a>
+					<span class="sep">|</span>
+					<a href="#">MIUI</a>
+					<span class="sep">|</span>
+					<a href="#">米聊</a>
+					<span class="sep">|</span>
+					<a href="#">游戏</a>
+					<span class="sep">|</span>
+					<a href="#">多看阅读</a>
+					<span class="sep">|</span>
+					<a href="#">云服务</a>
+					<span class="sep">|</span>
+					<a href="#">金融</a>
+					<span class="sep">|</span>
+					<a href="#">米币</a>
+					<span class="sep">|</span>
+					<a href="#">小米商城手机版</a>
+					<span class="sep">|</span>
+					<a href="#">问题反馈</a>
+					<span class="sep">|</span>
+					<a href="#">Select Region</a>
+				</p>
+				<p>
+					©
+					<a href="#">mi.com</a>
+					京ICP证110507号 
+					<a href="#">京ICP备10046444号</a>
+					<a href="#">京公网安备11010802020134号 </a>
+					<a href="#">京网文[2014]0059-0009号</a>
+					<br>
+					违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+				</p>
+			</div>
+			<div class="info-links">
+				<a href="#">
+					<img data-echo="images/truste.png" src="images/blank.gif" alt="">
+				</a>
+				<a href="#">
+					<img data-echo="images/v-logo-2.png" src="images/blank.gif" alt="">
+				</a>
+				<a href="#">
+					<img data-echo="images/v-logo-1.png"  src="images/blank.gif" alt="">
+				</a>
+				<a href="#">
+					<img data-echo="images/v-logo-3.png"  src="images/blank.gif" alt="">
+				</a>
+				<a href="#">
+					<img data-echo="images/ba10428a4f9495ac310fd0b5e0cf8370.png"  src="images/blank.gif" alt="">
+				</a>
+			</div>
+		</div>
+		<div class="slogan">探索黑科技，小米为发烧而生</div>
+	</div>
+	<script type="text/javascript" src="js/data.min.js"></script>
+	<script type="text/javascript" src="js/echo.min.js"></script>
+	<script type="text/javascript" src="js/mix2.js"></script>
+</body>
+</html>

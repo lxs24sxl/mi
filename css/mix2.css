@@ -1,0 +1,151 @@
+@media screen and ( min-width:1243px) {
+	body #S_indexBody {
+		font-size:calc(47.8906px + (100vw - 1243px) / 25.4);
+	}
+}
+.mix2-index .section h1, .mix2-index .section h2, 
+.mix2-index .section h3, .mix2-index .section p, 
+.mix2-index .section ul, .mix2-index .section li, 
+.mix2-index .section dl, .mix2-index .section dt, 
+.mix2-index .section dd, .mix2-index .section li, 
+.mix2-index .section a {
+    font-size: 1em;
+}
+
+.mix2 h1, .mix2 h2, .mix2 h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+.mix2 p, .mix2 ul, .mix2 li, .mix2 dl, .mix2 dt, .mix2 dd {
+    margin: 0;
+    padding: 0;
+}
+
+
+.mix2-index {
+	font-size: 47.8906px;
+	width: 100%;
+	background: #0e0e0e;
+	font-family: "F01e0c","Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+.mix2-index .section-header {
+	height: 14em;
+	background: none center top no-repeat;
+	background-size: cover;
+	text-align: center;
+	overflow: hidden;
+}
+.mix2-index .section-header .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.mix2-index .section-header .slide-outer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.mix2-index .section-header .slide-outer .ui-wrapper{
+	height: 100% !important;
+}
+.ui-wrapper {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+.mix2-index .section-header .slide-outer .slide {
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+.mix2-index .section-header .slide-outer .slide .slider-01 {
+    background-image: url(../images/mix2/index-header-bg-01.jpg);
+}
+.mix2-index .section-header .slide-outer .slide .slider-02 {
+    background-image: url(../images/mix2/index-header-bg-02.jpg);
+}
+.mix2-index .section-header .slide .slider {
+	height: 100%;
+	background: center top no-repeat;
+	background-size: cover;
+}
+
+.mix2-index .section-header .title {
+    position: relative;
+    color: #fff;
+    -webkit-transition: color 1s;
+    transition: color 1s;
+}
+
+.mix2-index .section-header .title h1 .text, .mix2-index .section-header .title-style-01 h1 .text {
+    background-image: url(../images/mix2/index-header-title1-01.png);
+}
+.mix2-index .section-header .title h1 {
+	width: 4.36em;
+	height: .75em;
+	margin-left: 1.82em;
+	margin-top: 5.26em;
+}
+.mix2-index .section-header .title h1 .text {
+	width: 100%;
+	height: 100%;
+	text-indent: -9999px;
+	/*background: none center top no-repeat;*/
+	background-size: contain;
+	-webkit-transition: background-image 1s;
+	-o-transition: background-image 1s;
+	transition: background-image 1s;
+}
+.mix2-index .section .container .text {
+    display: block;
+}
+
+.mix2-index .section-header .title h2 .text, .mi2-index .section-header .title-style-01 h2 .text {
+	background-image: url(../images/mix2/index-header-title2-01.png);
+}
+.mix2-index .section-header .title h2 {
+	width: 22.24em;
+	height: 2.18em;
+	margin-left: 1.7em;
+	margin-top: .28em;
+}
+.mix2-index .section-header .title h2 .text {
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+	text-indent: -9999px;
+	-webkit-transition: background-image 1s;
+	-o-transition: background-image 1s;
+	transition: background-image 1s;
+}
+
+
+
+.mix2-index .section-header .title p .text {
+    font-size: .36em;
+}
+
+.mix2-index .section-header .title .price .text {
+    display: inline-block;
+    font-size: .36em;
+}
+.mix2-index .section-header .title .price i {
+    font-style: normal;
+}
+.mix2-index .section-header .title p {
+    float: left;
+    line-height: .6em;
+    margin-left: 1.7em;
+    margin-top: .2em;
+}
+
+.mix2-index .section-header .title .price {
+	float: right;
+	line-height: .4em;
+	margin-right: 1.66em;
+	margin-top: .2em;
+	text-align: right;
+}
