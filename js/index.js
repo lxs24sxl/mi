@@ -1503,17 +1503,18 @@ window.onload = function () {
 
 
 
-
-
 /****************************************************************/
 // todo: 未加载的时候，判断浏览器版本，IE8以下显示提示框
 /****************************************************************/
+
 
 
 /*滚动节流处理*/
 var timer;
 
 window.onscroll = function () {
+
+
     if( timer ) {
     	document.body.style.cssText = "pointer-events: none;";
     	clearTimeout( timer );
