@@ -568,35 +568,63 @@ window.onscroll = function () {
 	// 到达第一个section
 	if ( curScrollTop >= offset( sectionArr[ 0 ] ).top ) {
 		addClass( fixNarBar, "nav-fix");
+		// 脱离文本流
+		S_indexBody.style.display = "none";
+		addClass( sectionArr[ 0 ], "preload");
 		addClass( sectionArr[ 0 ], "is-visible");
+		addClass( sectionArr[ 1 ], "preload");
+		// 加入文本流
+		S_indexBody.style.display = "block";
 	} else {
 		removeClass( fixNarBar, "nav-fix");
 	}
 	// 到达第二个section
 	if ( curScrollTop >= offset( sectionArr[ 1 ]).top - 300 ) {
 		addClass(sectionArr[ 1 ], "is-visible" );
+		addClass( sectionArr[ 2 ], "preload");
 	} 
 
 	// 到达第三个section
 	if (curScrollTop >= offset( sectionArr[ 2 ]).top - 200) {
 		addClass(sectionArr[ 2 ], "is-visible" );
+		addClass( sectionArr[ 3 ], "preload");
 	}
 	// 到达第四个section
 	if (curScrollTop >= offset( sectionArr[ 3 ]).top - 200) {
 		addClass(sectionArr[ 3 ], "is-visible" );
+		addClass( sectionArr[ 4 ], "preload");
 	}
 	// 到达第五个section
 	if (curScrollTop >= offset( sectionArr[ 4 ]).top - 200) {
 		addClass(sectionArr[ 4 ], "is-visible" );
+		addClass( sectionArr[ 5 ], "preload");
 	}
 	// 到达第六个section
 	if (curScrollTop >= offset( sectionArr[ 5 ]).top - 200) {
 		addClass(sectionArr[ 5 ], "is-visible" );
+		addClass( sectionArr[ 6 ], "preload");
 	}
 	// 
-	// 到达第七个section
+	// 到达section-gallery
 	if (curScrollTop >= offset( sectionArr[ 6 ]).top - 200) {
 		addClass(sectionArr[ 6 ], "is-visible" );
+		addClass( sectionArr[ 7 ], "preload");
+	}
+	// 到达section-body
+	if (curScrollTop >= offset( sectionArr[ 7 ]).top - 200) {
+		addClass(sectionArr[ 7 ], "is-visible" );
+		addClass( sectionArr[ 8 ], "preload");
+	}
+	// 
+	 // 到达section-powerful
+	if (curScrollTop >= offset( sectionArr[ 8 ]).top - 200) {
+		addClass(sectionArr[ 8 ], "is-visible" );
+		addClass( sectionArr[ 9 ], "preload");
+	}
+	 // 到达section-camera
+	if (curScrollTop >= offset( sectionArr[ 9 ]).top - 200) {
+		addClass(sectionArr[ 9 ], "is-visible" );
+		// addClass( sectionArr[ 10 ], "preload");
 	}
 	// 
     if( timer ) {

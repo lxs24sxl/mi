@@ -31,6 +31,9 @@
 	background: #0e0e0e;
 	font-family: "F01e0c","Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
 }
+.mix2-index .section .container {
+    width: 100%;
+}
 .mix2-index .section-header {
 	height: 14em;
 	background: none center top no-repeat;
@@ -57,6 +60,11 @@
 	position: relative;
 	margin: 0;
 	padding: 0;
+}
+.ui-wrapper .ui-viewport {
+    -webkit-transform: translatez(0);
+    -ms-transform: translatez(0);
+    transform: translatez(0);
 }
 .mix2-index .section-header .slide-outer .slide {
     height: 100%;
@@ -87,11 +95,11 @@
 .mix2-index .section-header .title.title-style-02 {
     color: #0f0f0f;
 }
-.mix2-index .section-header .title h1 .text, .mix2-index .section-header .title-style-01 h1 .text {
+.mix2-index .section-header.preload .title h1 .text, .mix2-index .section-header .title-style-01 h1 .text {
     background-image: url(../images/mix2/index-header-title1-01.png);
 }
 
-.mix2-index .section-header .title-style-02 h1 .text {
+.mix2-index .section-header.preload .title-style-02 h1 .text {
     background-image: url(../images/mix2/index-header-title1-02.png);
 }
 
@@ -115,10 +123,10 @@
     display: block;
 }
 
-.mix2-index .section-header .title h2 .text, .mi2-index .section-header .title-style-01 h2 .text {
+.mix2-index .section-header.preload .title h2 .text, .mi2-index .section-header .title-style-01 h2 .text {
 	background-image: url(../images/mix2/index-header-title2-01.png);
 }
-.mix2-index .section-header .title-style-02 h2 .text {
+.mix2-index .section-header.preload .title-style-02 h2 .text {
 	background-image: url(../images/mix2/index-header-title2-02.png);
 }
 .mix2-index .section-header .title h2 {
@@ -468,5 +476,154 @@
     color: #8d8d8d;
 }
 .mix2-index .section-unibody .tip .text {
+    font-size: .26em;
+}
+
+/*section-gallery*/
+.mix2-index .section-gallery {
+    height: 12.8em;
+    text-align: center;
+}
+.mix2-index .section-gallery .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.mix2-index .section-gallery .slide-outer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.mix2-index .section-gallery .slide-outer .ui-wrapper {
+    height: 100% !important;
+}
+.mix2-index .section-gallery .slide-outer .ui-wrapper .ui-viewport {
+    height: 100% !important;
+}
+.mix2-index .section-gallery .slide-outer .slide {
+    height: 100%;
+}
+.mix2-index .section-gallery .slide-outer .slide .slider {
+    height: 100%;
+    background: center top no-repeat;
+    background-size: cover;
+    float: none;
+    list-style: none; 
+    position: absolute; 
+    width: 1349px;
+}
+.mix2-index .section-gallery.preload .slide .slider-01 {
+    background-image: url(../images/mix2/index-gallery-01.jpg);
+}
+/*.mix2-index .section-gallery.preload .slide .slider-02 {
+    background-image: url(../images/mix2/index-gallery-01.jpg);
+}
+*/
+.mix2-index .section-gallery h2 .text {
+    font-size: .32em;
+}
+.mix2-index .section-gallery h2 {
+    position: relative;
+    top: 10.86em;
+    height: .48em;
+}
+/*section-body*/
+.mix2-index .section-body.preload {
+    background-image: url(../images/mix2/index-body-bg.jpg);
+}
+.mix2-index .section-body {
+    height: 17.2em;
+    background: none center top no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: left;
+}
+.mix2-index .section-body h3 {
+    line-height: .6em;
+    margin-left: 13.9em;
+    padding-top: 10.7em;
+}
+.mix2-index .section-body h3 .text {
+    font-size: .5em;
+}
+.mix2-index .section-body h2 {
+    line-height: 2.3em;
+    margin-left: 13.7em;
+}
+.mix2-index .section-body h2 .text {
+    font-size: 1.4em;
+}
+.mix2-index .section-body p {
+    line-height: .44em;
+    margin-left: 13.86em;
+    margin-top: .06em;
+}
+.mix2-index .section-body p .text {
+    font-size: .26em;
+}
+/*section-powerful*/
+.mix2-index .section-powerful.preload {
+    background-image: url(../images/mix2/index-powerful-bg.jpg?V2);
+}
+.mix2-index .section-powerful {
+    height: 17.2em;
+    background: none center top no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+.mix2-index .section-powerful h3 {
+    line-height: .6em;
+    padding-top: 1.71em;
+}
+.mix2-index .section-powerful h3 .text {
+    font-size: .5em;
+}
+.mix2-index .section-powerful h2 .text {
+    font-size: 1.4em;
+}
+.mix2-index .section-powerful h2 {
+    line-height: 2.2em;
+}
+.mix2-index .section-powerful p {
+    line-height: .5em;
+}
+.mix2-index .section-powerful p .text {
+    font-size: .26em;
+}
+.mix2-index .section-powerful .tip .text {
+    font-size: .22em;
+}
+.mix2-index .section-powerful .tip {
+    line-height: .36em;
+    margin-top: .09em;
+    color: #727272;
+}
+/*section-camera*/
+.mix2-index .section-camera.preload {
+    background-image: url(../images/mix2/index-camera-bg.jpg);
+}
+.mix2-index .section-camera {
+    height: 17.45em;
+    background: none center top no-repeat;
+    background-size: cover;
+    color: #101010;
+    text-align: center;
+}
+.mix2-index .section-camera h3 .text {
+    font-size: .5em;
+}
+.mix2-index .section-camera h2 .text {
+    font-size: 1.4em;
+}
+.mix2-index .section-camera h2 {
+    line-height: 2.2em;
+}
+.mix2-index .section-camera p {
+    line-height: .5em;
+}
+.mix2-index .section-camera p .text {
     font-size: .26em;
 }
