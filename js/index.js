@@ -499,7 +499,7 @@ window.onload = function () {
 				'<li class="video-item {#firstClass#}">',
 					'<div class="figure figure-img">',
 						'<a class="exposure" href="#">',
-							'<img src="{#imgSrc#}">',
+							'<img src="images/blank.gif" data-echo="{#imgSrc#}">',
 							'<span class="play">',
 								'<i class="icon-play"></i>',
 							'</span>',

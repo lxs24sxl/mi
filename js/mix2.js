@@ -517,6 +517,7 @@ window.onload = function () {
 		}
 	})();
 	Echo.init({offset: 0,throttle: 3000 });
+	
 
 };
 
@@ -537,16 +538,67 @@ window.onload = function () {
 function getScrollTop() {
     return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
 }
+/**
+ * 
+ * @desc  获取一个元素的距离文档(document)的位置，类似jQ中的offset()
+ * @param {HTMLElement} ele 
+ * @returns { {left: number, top: number} }
+ */
+function offset(ele) {
+    var pos = {
+        left: 0,
+        top: 0
+    };
+    while (ele) {
+        pos.left += ele.offsetLeft;
+        pos.top += ele.offsetTop;
+        ele = ele.offsetParent;
+    };
+    return pos;
+}
 
 /*滚动节流处理*/
 var timer;
-var fixNarBar = document.getElementById("fixNarBar");
+var curScrollTop,
+	fixNarBar = document.getElementById("fixNarBar"),
+	S_indexBody = document.getElementById("S_indexBody"),
+	sectionArr = toArray( S_indexBody.children );
 window.onscroll = function () {
-	if ( getScrollTop() >= 200) {
+	curScrollTop = getScrollTop();
+	// 到达第一个section
+	if ( curScrollTop >= offset( sectionArr[ 0 ] ).top ) {
 		addClass( fixNarBar, "nav-fix");
+		addClass( sectionArr[ 0 ], "is-visible");
 	} else {
 		removeClass( fixNarBar, "nav-fix");
 	}
+	// 到达第二个section
+	if ( curScrollTop >= offset( sectionArr[ 1 ]).top - 300 ) {
+		addClass(sectionArr[ 1 ], "is-visible" );
+	} 
+
+	// 到达第三个section
+	if (curScrollTop >= offset( sectionArr[ 2 ]).top - 200) {
+		addClass(sectionArr[ 2 ], "is-visible" );
+	}
+	// 到达第四个section
+	if (curScrollTop >= offset( sectionArr[ 3 ]).top - 200) {
+		addClass(sectionArr[ 3 ], "is-visible" );
+	}
+	// 到达第五个section
+	if (curScrollTop >= offset( sectionArr[ 4 ]).top - 200) {
+		addClass(sectionArr[ 4 ], "is-visible" );
+	}
+	// 到达第六个section
+	if (curScrollTop >= offset( sectionArr[ 5 ]).top - 200) {
+		addClass(sectionArr[ 5 ], "is-visible" );
+	}
+	// 
+	// 到达第七个section
+	if (curScrollTop >= offset( sectionArr[ 6 ]).top - 200) {
+		addClass(sectionArr[ 6 ], "is-visible" );
+	}
+	// 
     if( timer ) {
     	document.body.style.cssText = "pointer-events: none;";
     	clearTimeout( timer );

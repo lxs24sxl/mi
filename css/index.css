@@ -1573,6 +1573,7 @@ del {
 .video-item .figure-img img {
 	width: 296px;
 	height: 180px;
+	background: url(../images/loading.gif) no-repeat 50%;
 }
 .video-item .title {
 	margin: 0 0 6px;

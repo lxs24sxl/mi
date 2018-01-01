@@ -21,7 +21,9 @@
     margin: 0;
     padding: 0;
 }
-
+.mix2 strong {
+	font-weight: normal;
+}
 
 .mix2-index {
 	font-size: 47.8906px;
@@ -61,10 +63,10 @@
     width: auto;
     position: relative;
 }
-.mix2-index .section-header .slide-outer .slide .slider-01 {
+.mix2-index .section-header.preload .slide-outer .slide .slider-01 {
     background-image: url(../images/mix2/index-header-bg-01.jpg);
 }
-.mix2-index .section-header .slide-outer .slide .slider-02 {
+.mix2-index .section-header.preload .slide-outer .slide .slider-02 {
     background-image: url(../images/mix2/index-header-bg-02.jpg);
 }
 .mix2-index .section-header .slide .slider {
@@ -79,10 +81,20 @@
     -webkit-transition: color 1s;
     transition: color 1s;
 }
-
+.mix2-index .section-header .title.title-style-01 {
+    color: #fff;
+}
+.mix2-index .section-header .title.title-style-02 {
+    color: #0f0f0f;
+}
 .mix2-index .section-header .title h1 .text, .mix2-index .section-header .title-style-01 h1 .text {
     background-image: url(../images/mix2/index-header-title1-01.png);
 }
+
+.mix2-index .section-header .title-style-02 h1 .text {
+    background-image: url(../images/mix2/index-header-title1-02.png);
+}
+
 .mix2-index .section-header .title h1 {
 	width: 4.36em;
 	height: .75em;
@@ -105,6 +117,9 @@
 
 .mix2-index .section-header .title h2 .text, .mi2-index .section-header .title-style-01 h2 .text {
 	background-image: url(../images/mix2/index-header-title2-01.png);
+}
+.mix2-index .section-header .title-style-02 h2 .text {
+	background-image: url(../images/mix2/index-header-title2-02.png);
 }
 .mix2-index .section-header .title h2 {
 	width: 22.24em;
@@ -148,4 +163,310 @@
 	margin-right: 1.66em;
 	margin-top: .2em;
 	text-align: right;
+}
+
+.mix2-index .section .phantom-item-1, .mix2-index .section .phantom-item-2, .mix2-index .section .phantom-item-3, .mix2-index .section .phantom-item-4 {
+    -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
+    transition: opacity 0.8s, transform 0.8s;
+    opacity: 0;
+    filter: alpha(opacity=0)\9;
+    -webkit-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    transform: translateY(50px);
+}
+.mix2-index .section .phantom-item-2 {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+.mix2-index .section .phantom-item-3 {
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+.mix2-index .section .phantom-item-4 {
+    -webkit-transition-delay: 0.6s;
+    transition-delay: 0.6s;
+}
+.mix2-index .section.is-visible .phantom-item-1, .mix2-index .section.is-visible .phantom-item-2, .mix2-index .section.is-visible .phantom-item-3, .mix2-index .section.is-visible .phantom-item-4 {
+    opacity: 1;
+    filter: alpha(opacity=100)\9;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+/*section-awrad*/
+.mix2-index .section-award.preload {
+	background-image: url(../images/mix2/index-award-bg.jpg);
+}
+.mix2-index .section-award {
+	height: 6.88em;
+	background-size: cover;
+	color: #fff;
+	text-align: center;
+}
+.mix2-index .section-award .award {
+	position: relative;
+	width: 20.49em;
+	margin: 1.32em auto 0;
+}
+.mix2-index .section-award .award dl:first-child {
+    border-left: none;
+}
+.mix2-index .section-award .award dl {
+	position: relative;
+	float: left;
+	width: 6.8em;
+	height: 3.92em;
+	border-left: .03em solid #272727;
+}
+
+.mix2-index .section-award .award dl dt strong {
+    display: block;
+    line-height: .8em;
+    margin-top: -.2em;
+}
+.mix2-index .section-award .award dl dt .text {
+    font-size: .32em;
+}
+.mix2-index .section-award .award dl dt {
+    line-height: .6em;
+}
+.mix2-index .section-award .award dl dt strong .text {
+	font-size: .5em;
+}
+.mix2-index .section-award .award dl dd .text {
+    font-size: .24em;
+}
+.mix2-index .section-award .award dl dd {
+    line-height: .42em;
+    margin-top: .16em;
+    color: #9a9a9a;
+}
+.mix2-index .section-award .award dl dd .award-logo.award-logo-1 {
+     background-position: center top; 
+}
+.mix2-index .section-award .award dl dd .award-logo.award-logo-2 {
+     background-position: center center; 
+}
+.mix2-index .section-award .award dl dd .award-logo.award-logo-3 {
+     background-position: center bottom; 
+}
+.mix2-index .section-award.preload .award dl dd .award-logo {
+    background-image: url(../images/mix2/index-award-logo.png);
+    background-repeat: no-repeat;
+}
+.mix2-index .section-award.preload .award dl dd .award-logo {
+	height: 1.4em;
+	margin-top: .5em;
+	background-size: auto 4.2em;
+}
+/*section-dialog*/
+.mix2-index .section-dialog.preload {
+	background-image: url(../images/mix2/index-dialog-bg.jpg);
+	background-repeat: no-repeat;
+}
+.mix2-index .section-dialog {
+	background-position: center top;
+	background-size: cover;
+	text-align: center;
+	color: #fff;
+	height: 14.4em;
+}
+.mix2-index .section-dialog.preload .play-btn {
+    background-image: url(../images/mix2/index-dialog-btn.png);
+}
+.mix2-index .section-dialog .play-btn {
+    display: block;
+    width: .87em;
+    height: 1em;
+    margin: .51em auto 0;
+    background: none center top no-repeat;
+    background-size: contain;
+}
+.mix2-index .section-dialog h2 .text {
+    font-size: .72em;
+}
+.mix2-index .section-dialog h2 {
+    line-height: .97em;
+    padding-top: 5.51em;
+}
+.mix2-index .section-dialog p .text {
+    font-size: .35em;
+}
+.mix2-index .section-dialog p {
+    line-height: .5em;
+    margin-top: .36em;
+}
+/*section-screen*/
+.mix2-index .section-screen.preload {
+	background-image: url(../images/mix2/index-screen-bg-02.jpg);
+}
+.mix2-index .section-screen {
+    height: 18.4em;
+    background: none center top no-repeat;
+    background-size: cover;
+    color: #131313;
+    text-align: center;
+}
+.mix2-index .section-screen h3 {
+    line-height: .6em;
+    padding-top: 1.2em;
+}
+.mix2-index .section-screen h3 .text {
+    font-size: .5em;
+}
+.mix2-index .section-screen h2 .text {
+    font-size: 1.4em;
+}
+.mix2-index .section-screen h2 {
+    line-height: 1.74em;
+}
+.mix2-index .section-screen p .text {
+    font-size: .26em;
+}
+.mix2-index .section-screen p {
+    line-height: .48em;
+    margin-top: .1em;
+}
+/*fragment-screen*/
+.mix2-index .fragment-screen.preload {
+    background-image: url(../images/mix2/index-screen-fg-bg.jpg);
+}
+.mix2-index .fragment-screen {
+    height: 26.14em;
+    background: none center top no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+.mix2-index .fragment-screen h2 .text {
+    font-size: 1.2em;
+}
+.mix2-index .fragment-screen h2 {
+    line-height: 1.4em;
+    padding-top: 1.68em;
+}
+.mix2-index .fragment-screen p {
+    line-height: .48em;
+    margin-top: .32em;
+}
+.mix2-index .fragment-screen p .text {
+    font-size: .26em;
+}
+.mix2-index .fragment-screen.preload .screen-phone {
+    background-image: url(../images/mix2/index-screen-phone.png?V2);
+}
+.mix2-index .fragment-screen .screen-phone {
+    position: relative;
+    width: 10.23em;
+    height: 10.84em;
+    margin: 1.12em auto 0;
+    background: none center top no-repeat;
+    background-size: contain;
+}
+.mix2-index .fragment-screen .screen-phone .phone-tip-1, .mix2-index .fragment-screen .screen-phone .phone-tip-2 {
+    position: absolute;
+    bottom: 0;
+    line-height: .46em;
+    color: #ccc;
+}
+.mix2-index .fragment-screen .screen-phone .phone-tip-1 {
+    left: 0;
+    width: 4.93em;
+}
+.mix2-index .fragment-screen .screen-phone .phone-tip-2 {
+    right: 0;
+    width: 4.88em;
+}
+.mix2-index .fragment-screen .screen-phone .phone-tip-1 .text, 
+.mix2-index .fragment-screen .screen-phone .phone-tip-2 .text {
+    font-size: .28em;
+}
+.mix2-index .fragment-screen h3 .text {
+    font-size: .52em;
+}
+.mix2-index .fragment-screen h3 {
+    line-height: .56em;
+    padding-top: 1.3em;
+}
+.mix2-index .fragment-screen ul {
+    width: 18em;
+    margin: .82em auto 0;
+    overflow: auto;
+}
+.mix2-index .fragment-screen ul li {
+    float: left;
+    display: inline;
+    width: 4.3em;
+    height: 3.4em;
+    line-height: .36em;
+    margin: 0 .1em;
+    background: #0f0f0f;
+    background: rgba(18,18,18,0.8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cc121212", endColorstr="#cc121212")\9;
+    border-radius: .12em;
+}
+.mix2-index .fragment-screen ul li .text {
+    font-size: .24em;
+}
+.mix2-index .fragment-screen.preload ul li .screen-logo {
+    background-image: url(../images/mix2/index-screen-icon.png);
+}
+.mix2-index .fragment-screen ul li .screen-logo.screen-logo-1 {
+    background-position: 0em 0;
+}
+.mix2-index .fragment-screen ul li .screen-logo.screen-logo-2 {
+    background-position: -1.9em 0;
+}
+.mix2-index .fragment-screen ul li .screen-logo.screen-logo-3 {
+    background-position: -3.8em 0;
+}
+.mix2-index .fragment-screen ul li .screen-logo.screen-logo-4 {
+    background-position: -5.7em 0;
+}
+.mix2-index .fragment-screen ul li .screen-logo {
+    width: 1.9em;
+    height: 1.6em;
+    margin: .36em auto .3em;
+    background: none no-repeat;
+    background-size: auto 100%;
+}
+/*section-unibody*/
+.mix2-index .section-unibody.preload {
+    background-image: url(../images/mix2/index-unibody-bg.jpg);
+}
+.mix2-index .section-unibody {
+    height: 17.2em;
+    background: #e5e5e8 none center top no-repeat;
+    background-size: 100% auto;
+    color: #1a1a1a;
+    text-align: center;
+}
+.mix2-index .section-unibody h3 .text {
+    font-size: .5em;
+}
+.mix2-index .section-unibody h3 {
+    line-height: .6em;
+    padding-top: 11.3em;
+}
+.mix2-index .section-unibody h2 {
+    line-height: 2.32em;
+}
+.mix2-index .section-unibody h2 .text {
+    font-size: 1.4em;
+}
+.mix2-index .section-unibody p .text {
+    font-size: .26em;
+}
+.mix2-index .section-unibody p {
+    line-height: .5em;
+    margin-top: .06em;
+}
+.mix2-index .section-unibody .tip {
+    line-height: .36em;
+    margin-top: .09em;
+    color: #8d8d8d;
+}
+.mix2-index .section-unibody .tip .text {
+    font-size: .26em;
 }
