@@ -517,8 +517,9 @@ window.onload = function () {
 		}
 	})();
 	Echo.init({offset: 0,throttle: 3000 });
-	
-
+	var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+	document.body.scrollTop = 200;
+	console.log( osTop );
 };
 
 /*************************************************************************************/
@@ -538,6 +539,50 @@ window.onload = function () {
 function getScrollTop() {
     return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
 }
+var requestAnimFrame = (function () {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        function (callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+})();
+/**
+ * 
+ * @desc  在${duration}时间内，滚动条平滑滚动到${to}指定位置
+ * @param {Number} to 
+ * @param {Number} duration 
+ */
+function scrollTo(to, duration) {
+    if (duration < 0) {
+        setScrollTop(to);
+        return
+    }
+    var diff = to - getScrollTop();
+    if (diff === 0) return
+    var step = diff / duration * 10;
+    requestAnimationFrame(
+        function () {
+            if (Math.abs(step) > Math.abs(diff)) {
+                setScrollTop(getScrollTop() + diff);
+                return;
+            }
+            setScrollTop(getScrollTop() + step);
+            if (diff > 0 && getScrollTop() >= to || diff < 0 && getScrollTop() <= to) {
+                return;
+            }
+            scrollTo(to, duration - 16);
+        });
+}
+/**
+ * 
+ * @desc 设置滚动条距顶部的距离
+ */
+function setScrollTop(value) {
+    window.scrollTo(0, value);
+    return value;
+}
+
 /**
  * 
  * @desc  获取一个元素的距离文档(document)的位置，类似jQ中的offset()
@@ -565,7 +610,7 @@ var curScrollTop,
 	sectionArr = toArray( S_indexBody.children );
 window.onscroll = function () {
 	curScrollTop = getScrollTop();
-	// 到达第一个section
+	// 到达section-header
 	if ( curScrollTop >= offset( sectionArr[ 0 ] ).top ) {
 		addClass( fixNarBar, "nav-fix");
 		// 脱离文本流
@@ -578,29 +623,29 @@ window.onscroll = function () {
 	} else {
 		removeClass( fixNarBar, "nav-fix");
 	}
-	// 到达第二个section
+	// 到达section-awrad
 	if ( curScrollTop >= offset( sectionArr[ 1 ]).top - 300 ) {
 		addClass(sectionArr[ 1 ], "is-visible" );
 		addClass( sectionArr[ 2 ], "preload");
 	} 
 
-	// 到达第三个section
+	// 到达section-dialog
 	if (curScrollTop >= offset( sectionArr[ 2 ]).top - 200) {
 		addClass(sectionArr[ 2 ], "is-visible" );
 		addClass( sectionArr[ 3 ], "preload");
 	}
-	// 到达第四个section
+	// 到达section-screen
 	if (curScrollTop >= offset( sectionArr[ 3 ]).top - 200) {
 		addClass(sectionArr[ 3 ], "is-visible" );
 		addClass( sectionArr[ 4 ], "preload");
 	}
-	// 到达第五个section
+	// 到达fragment-screen
 	if (curScrollTop >= offset( sectionArr[ 4 ]).top - 200) {
 		addClass(sectionArr[ 4 ], "is-visible" );
 		addClass( sectionArr[ 5 ], "preload");
 	}
-	// 到达第六个section
-	if (curScrollTop >= offset( sectionArr[ 5 ]).top - 200) {
+	// 到达section-unibody
+	if (curScrollTop >= offset( sectionArr[ 5 ]).top) {
 		addClass(sectionArr[ 5 ], "is-visible" );
 		addClass( sectionArr[ 6 ], "preload");
 	}
@@ -611,7 +656,7 @@ window.onscroll = function () {
 		addClass( sectionArr[ 7 ], "preload");
 	}
 	// 到达section-body
-	if (curScrollTop >= offset( sectionArr[ 7 ]).top - 200) {
+	if (curScrollTop >= offset( sectionArr[ 7 ]).top - 100) {
 		addClass(sectionArr[ 7 ], "is-visible" );
 		addClass( sectionArr[ 8 ], "preload");
 	}
@@ -624,9 +669,34 @@ window.onscroll = function () {
 	 // 到达section-camera
 	if (curScrollTop >= offset( sectionArr[ 9 ]).top - 200) {
 		addClass(sectionArr[ 9 ], "is-visible" );
-		// addClass( sectionArr[ 10 ], "preload");
+		addClass( sectionArr[ 10 ], "preload");
 	}
-	// 
+	 // 到达section-sound
+	if (curScrollTop >= offset( sectionArr[ 10 ]).top) {
+		addClass(sectionArr[ 10 ], "is-visible" );
+		addClass( sectionArr[ 11 ], "preload");
+	}
+	 // 到达section-network
+	if (curScrollTop >= offset( sectionArr[ 11 ]).top - 200) {
+		addClass(sectionArr[ 11 ], "is-visible" );
+		addClass( sectionArr[ 12 ], "preload");
+	}
+	 // 到达section-sult
+	if (curScrollTop >= offset( sectionArr[ 12 ]).top ) {
+		addClass(sectionArr[ 12 ], "is-visible" );
+		addClass( sectionArr[ 13 ], "preload");
+	}
+	// 到达section-version
+	if (curScrollTop >= offset( sectionArr[ 13 ]).top - 200) {
+		addClass(sectionArr[ 13 ], "is-visible" );
+		// addClass( sectionArr[ 14 ], "preload");
+	}
+	// section-version
+	// if (curScrollTop >= offset( sectionArr[ 14 ]).top - 200) {
+	// 	// addClass(sectionArr[ 14 ], "is-visible" );
+	// 	// addClass( sectionArr[ 15 ], "preload");
+	// }
+
     if( timer ) {
     	document.body.style.cssText = "pointer-events: none;";
     	clearTimeout( timer );

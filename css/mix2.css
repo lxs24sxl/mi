@@ -627,3 +627,324 @@
 .mix2-index .section-camera p .text {
     font-size: .26em;
 }
+/*section-sound.*/
+.mix2-index .section-sound.preload {
+    background-image: url(../images/mix2/index-sound-bg.jpg);
+}
+.mix2-index .section-sound {
+    height: 15.98em;
+    background: #010101 none center top no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+.mix2-index .section-sound h3 {
+    line-height: .6em;
+    padding-top: 9.64em;
+}
+.mix2-index .section-sound h3 .text {
+    font-size: .5em;
+}
+.mix2-index .section-sound h2 .text {
+    font-size: 1.4em;
+}
+.mix2-index .section-sound h2 {
+    line-height: 2.2em;
+}
+.mix2-index .section-sound p .text {
+    font-size: .26em;
+}
+.mix2-index .section-sound p {
+    line-height: .48em;
+    margin-top: .12em;
+}
+/*section-network*/
+.mix2-index .section-network {
+    height: 16em;
+    background: none center top no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+.mix2-index .section-network.preload {
+    background-image: url(../images/mix2/index-network-bg.jpg);
+}
+.mix2-index .section-network h3 .text {
+    font-size: .5em;
+}
+.mix2-index .section-network h3 {
+    line-height: .6em;
+    padding-top: 1.86em;
+}
+.mix2-index .section-network h2 {
+    line-height: 2.1em;
+}
+.mix2-index .section-network h2 .text {
+    font-size: 1.4em;
+}
+.mix2-index .section-network p {
+    line-height: .48em;
+    margin-top: .18em;
+}
+.mix2-index .section-network p .text {
+    font-size: .26em;
+}
+.mix2-index .section-network .feature {
+    width: 16.26em;
+    margin: 6.7em auto 0;
+}
+.mix2-index .section-network .feature dl {
+    float: left;
+    width: 5.39em;
+    height: 1.12em;
+    border-left: .03em solid #434343;
+}
+.mix2-index .section-network .feature dl:first-child {
+    border-left: none;
+}
+.mix2-index .section-network .feature dl dt {
+    line-height: .6em;
+    margin-top: -.06em;
+}
+.mix2-index .section-network .feature dl dt .text {
+    font-size: .56em;
+}
+.mix2-index .section-network .feature dl dd {
+    line-height: .36em;
+    margin-top: .2em;
+}
+.mix2-index .section-network .feature dl dd .text {
+    font-size: .28em;
+}
+/*section-suit*/
+.mix2-index .section-suit.preload {
+    background-image: url(../images/mix2/index-suit-bg.jpg);
+}
+.mix2-index .section-suit {
+    height: 14.94em;
+    background: none center top no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+.mix2-index .section-suit h2 {
+    line-height: 1.6em;
+    padding-top: 10.14em;
+}
+.mix2-index .section-suit h2 .text {
+    font-size: 1em;
+}
+.mix2-index .section-suit p .text {
+    font-size: .26em;
+}
+.mix2-index .section-suit p {
+    line-height: .48em;
+}
+.mix2-index .section-suit ul {
+    line-height: .22em;
+    margin-top: .43em;
+}
+.mix2-index .section-suit ul li {
+    display: inline-block;
+    padding: 0 .18em;
+    border-left: .03em solid #bfbfbf;
+    color: #8f8f8f;
+    vertical-align: top;
+}
+.mix2-index .section-suit ul li:first-child {
+	border-left: none;
+}
+.mix2-index .section-suit ul li .text {
+    font-size: .24em;
+}
+/*section-version*/
+.mix2-index .section-version {
+    height: 20.32em;
+    background: #090909;
+}
+.mix2-index .section-version .version-pic {
+    position: relative;
+    width: 10.84em;
+    height: 8.29em;
+    margin: 0 auto;
+    padding-top: 1.4em;
+}
+.mix2-index .section-version .version-pic .pic {
+    position: absolute;
+    left: 0;
+    top: 1.4em;
+    width: 10.84em;
+    height: 8.29em;
+    background: center top no-repeat;
+    background-size: contain;
+    opacity: 0;
+    filter: alpha(opacity=0)\9;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+.mix2-index .section-version .version-pic.ver-pb .pic-pb {
+    opacity: 1;
+    filter: alpha(opacity=100)\9;
+}
+.mix2-index .section-version .version-pic.ver-b .pic-b {
+    opacity: 1;
+    filter: alpha(opacity=100)\9;
+}
+.mix2-index .section-version .version-pic.ver-pw .pic-pw {
+    opacity: 1;
+    filter: alpha(opacity=100)\9;
+}
+.mix2-index .section-version.preload .version-pic .pic-b {
+    background-image: url(../images/mix2/index-version-b.jpg);
+}
+.mix2-index .section-version.preload .version-pic .pic-pw {
+    background-image: url(../images/mix2/index-version-pw.jpg);
+}
+.mix2-index .section-version.preload .version-pic .pic-pb {
+    background-image: url(../images/mix2/index-version-pb.jpg);
+}
+.mix2-index .section-version .version-tab {
+    width: 10.2em;
+    margin: .93em auto 0;
+    overflow: hidden;
+    zoom: 1;
+}
+.mix2-index .section-version .version-tab .version-wrap {
+    float: left;
+    _display: inline;
+    width: 4.74em;
+    line-height: .82em;
+    margin: 0 .18em;
+    background: #000;
+    border-radius: .4em;
+    color: #fff;
+}
+.mix2-index .section-version .version-tab .version-wrap .tab-title {
+    float: left;
+    width: 3em;
+    padding-left: .42em;
+}
+.mix2-index .section-version .version-tab .version-wrap .tab-title .text {
+    font-size: .26em;
+}
+.mix2-index .section-version .version-tab .version-wrap .tab-wrap {
+    float: left;
+    width: 1.24em;
+    text-align: center;
+}
+.mix2-index .section-version .version-tab .version-wrap .tab-wrap .tab.current {
+    border-color: #0042ff;
+    cursor: default;
+}
+.mix2-index .section-version .version-tab .version-wrap .tab-wrap .tab.tab-b {
+    background: #1f1f1f;
+}
+.mix2-index .section-version .version-tab .version-wrap .tab-wrap .tab {
+    display: inline-block;
+    float: left;
+    width: .36em;
+    height: .36em;
+    margin: .2em .2em 0 0;
+    border: .03em solid transparent;
+    border-radius: 50%;
+    vertical-align: top;
+    cursor: pointer;
+}
+.mix2-index .section-version .version-tab .version-wrap .tab-wrap .tab.tab-pb {
+    background: #1f1f1f;
+}
+.mix2-index .section-version .version-tab .version-wrap .tab-wrap .tab.tab-pw {
+    background: #bababa;
+}
+.mix2-index .section-version .feature {
+    width: 20.94em;
+    margin: 1.18em auto 0;
+    padding: .46em 0;
+    border-top: .03em solid #202020;
+    border-bottom: .03em solid #202020;
+    color: #fff;
+    text-align: center;
+    overflow: auto;
+}
+.mix2-index .section-version .feature dl:nth-child(1), 
+.mix2-index .section-version .feature dl:nth-child(2), 
+.mix2-index .section-version .feature dl:nth-child(3), 
+.mix2-index .section-version .feature dl:nth-child(4) {
+    border-bottom: .03em solid #202020;
+}
+
+.mix2-index .section-version .feature dl:nth-child(4n+1) {
+    border-left: none;
+}
+.mix2-index .section-version .feature dl {
+    float: left;
+    width: 5.2125em;
+    height: 2.66em;
+    border-left: .03em solid #202020;
+}
+.mix2-index .section-version .feature dl dt {
+    line-height: .82em;
+}
+.mix2-index .section-version .feature dl dt .text {
+    font-size: .56em;
+}
+.mix2-index .section-version .feature dl:nth-child(5) dt, 
+.mix2-index .section-version .feature dl:nth-child(6) dt, 
+.mix2-index .section-version .feature dl:nth-child(7) dt, 
+.mix2-index .section-version .feature dl:nth-child(8) dt {
+    padding-top: .82em;
+}
+.mix2-index .section-version .feature dl dd .text {
+    font-size: .28em;
+}
+.mix2-index .section-version .feature dl dd {
+    line-height: .54em;
+}
+
+/*section-footer*/
+.mix2-index .section-footer {
+    height: 4.25em;
+    background: none center top no-repeat;
+    background-size: cover;
+}
+.mix2-index .section-footer.preload {
+    background-image: url(../images/mix2/index-footer-bg.jpg);
+}
+.mix2-index .section-footer a {
+    display: block;
+    line-height: 4em;
+    padding-bottom: .25em;
+    text-indent: 15.76em;
+    color: #fff;
+}
+.mix2-index .section-footer a .text {
+    font-size: .32em;
+}
+
+.section-mp-qrcode {
+    background: #fafafa;
+}
+.section-mp-qrcode .mp-qrcode-content {
+    text-align: center;
+}
+.section-mp-qrcode .mp-qrcode-item {
+    display: inline-block;
+    float: left;
+    width: 613px;
+    padding: 45px 0;
+    text-align: left;
+}
+.section-mp-qrcode .mp-qrcode-pic {
+    float: left;
+    display: inline;
+    margin: 0 35px 0 30px;
+    width: 100px;
+    height: 100px;
+}
+.section-mp-qrcode .mp-qrcode-text {
+    float: left;
+    line-height: 28px;
+    padding: 15px 0 0 0;
+    color: #000;
+    font-size: 14px;
+}
