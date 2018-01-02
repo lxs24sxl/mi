@@ -1449,7 +1449,7 @@ window.onload = function () {
 							// 改变当前下标
 							this.index = index;
 							// 存储当前cssText
-							this.styleStr = "width: " + listWidth + "px;margin-left: " + this.curLeft + "px;transition: margin-left 0.5s ease"
+							this.styleStr = "width: " + listWidth + "px;margin-left: " + this.curLeft + "px;transition: margin-left 0.5s ease";
 							// 改变样式，执行动画
 							itemList.style.cssText = this.styleStr;
 							// 存储当前焦点

@@ -348,24 +348,36 @@
 	<div class="mix2 mix2-index" id="S_indexBody">
 
 		<div class="section section-header preload">
-			<div class="container">
+			<div id="headerContainer" class="container">
 				<div class="slide-outer">
 					
 					<div class="ui-wrapper">
-						<div id="heaederSlide" class="slide">
-							<div class="slide">
-								<div class="slider slider-01" style="display:none;">
-									
+						<div class="ui-viewport">
+							<div id="headerSlide" class="slide">
+								<div class="slide">
+									<div class="slider slider-01">
+										
+									</div>
+									<div class="slider slider-02 slider-active">
+										
+									</div>
 								</div>
-								<div class="slider slider-02" style="display: block;">
-									
+							</div>
+						</div>
+						<div class="ui-controls">
+							<div id="headerControls" class="ui-pager ui-default-pager">
+								<div class="ui-pager-item">
+									<a data-index="0" class="ui-pager-link">1</a>
+								</div>
+								<div class="ui-pager-item">
+									<a data-index="1" class="ui-pager-link active">2</a>
 								</div>
 							</div>
 						</div>
 					</div>
-
+					
 				</div>
-				<div class="title title-style-02">
+				<div id="headerTitle" class="title title-style-02">
 					<h1 class="phantom-item-2">
 						<span class="text">小米MIX 2</span>
 					</h1>
@@ -522,17 +534,29 @@
 		</div>
 		
 		<div class="section section-gallery">
-			<div class="container">
+			<div id="galleryContainer" class="container">
 				<div class="slide-outer">
 					<div class="ui-wrapper">
-						<div class="ui-viewport">
+						<div id="gallerySlide" class="ui-viewport">
 							<div class="slide">
 								<div class="slider slider-01"></div>
-								<div class="slider slider-02"></div>
+								<div class="slider slider-02 slider-active"></div>
 								<div class="slider slider-03"></div>
 							</div>
 						</div>
-						<div class="ui-controls"></div>
+						<div class="ui-controls">
+							<div id="galleryControls" class="ui-pager ui-default-pager">
+								<div class="ui-pager-item">
+									<a data-index="0" class="ui-pager-link">1</a>
+								</div>
+								<div class="ui-pager-item">
+									<a data-index="1" class="ui-pager-link active">2</a>
+								</div>
+								<div class="ui-pager-item">
+									<a data-index="2" class="ui-pager-link">3</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<h2>
@@ -673,13 +697,13 @@
 
 		<div class="section section-version">
 
-		    <div class="container">
-		        <div class="version-pic ver-b" id="J_verPanel">
+		    <div id="versionContainer" class="container">
+		        <div class="version-pic ver-b" id="S_verPanel">
 		            <div class="pic pic-b"></div>
 		            <div class="pic pic-pb"></div>
 		            <div class="pic pic-pw"></div>
 		        </div>
-		        <div class="version-tab" id="J_verTab">
+		        <div class="version-tab" id="S_verTab">
 
 		            <div class="version-wrap">
 		                <div class="tab-title">

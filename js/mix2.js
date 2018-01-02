@@ -168,6 +168,41 @@ function getObjLength( obj ){
     };
     return count;   
 }
+/**
+ * 
+ * @desc 获取滚动条距顶部的距离
+ */
+function getScrollTop() {
+    return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+}
+var requestAnimFrame = (function () {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        function (callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+})();
+
+
+/**
+ * 
+ * @desc  获取一个元素的距离文档(document)的位置，类似jQ中的offset()
+ * @param {HTMLElement} ele 
+ * @returns { {left: number, top: number} }
+ */
+function offset(ele) {
+    var pos = {
+        left: 0,
+        top: 0
+    };
+    while (ele) {
+        pos.left += ele.offsetLeft;
+        pos.top += ele.offsetTop;
+        ele = ele.offsetParent;
+    };
+    return pos;
+}
 
 /*属性样式方法库*/
 var S = {
@@ -516,10 +551,199 @@ window.onload = function () {
 			})(i)
 		}
 	})();
+
+
+	// 轮播图类
+	var AutoPlay = function ( container, slideArr, controlArr, headerTitle ) {
+		this.index = 1;								// 当前下标
+		this.prevIndex = 0;							// 上一个下标
+		this.timer;									// 定时器
+		this.container = container;					// 外容器
+		this.slideArr = slideArr;					// 轮播图数组
+		this.controlArr = controlArr;				// 焦点按钮数组
+		this.headerTitle = headerTitle || "";		// 提示文字
+	}
+	AutoPlay.prototype = {
+		next: function () {
+			// 单例
+			if ( !len ) {
+				// 记录轮播图的长度
+				var len = this.slideArr.length;
+			} 
+			// 将当前下标定义成上一个下标
+			this.prevIndex = this.index;
+			// 当下标为最后一个值时,下标为0，否则+1
+			if ( this.index >= len - 1 ) {
+				this.index = 0;
+			} else {
+				this.index++;
+			}
+			// 执行改变动画
+			this.changeTo( this.index );
+		},
+		autoPlay: function () {
+			this.next();
+		},
+		startAutoPlay: function () {
+			var that = this;
+			// 定义定时器
+			this.timer = setInterval(function() {
+				that.autoPlay();
+			}, 5000);
+		},
+		changeTo: function ( curIndex ) {
+			// 清除定时器
+			clearInterval( this.timer );
+			// 当点击的不是同一个焦点时
+			if ( curIndex != this.prevIndex ) {
+				// 脱离文本流
+				this.container.style.display = "none";
+				console.log("**********************");
+				console.log( "切换之前:" + this.prevIndex );
+				// 移除前一个焦点的激活状态
+				removeClass( this.controlArr[ this.prevIndex ], "active");
+				// 移除前一个轮播图的激活状态
+				removeClass( this.slideArr[ this.prevIndex ], "slider-active");
+				// 如果有提示文字
+				if ( this.headerTitle ) {
+					// 移除之前提示文字的激活状态
+					removeClass( this.headerTitle, "title-style-0" + (this.prevIndex + 1));
+					// 添加当前提示文字的激活状态
+					addClass( this.headerTitle, "title-style-0" + (curIndex + 1 ));
+				}
+				// 重新设置当前的下标
+				this.index = curIndex;
+				console.log( "切换之后:" + this.index );
+				// 添加新焦点的激活状态
+				addClass( this.slideArr[ curIndex ], "slider-active");
+				// 添加新轮播图的激活状态
+				addClass( this.controlArr[ curIndex ], "active");
+				// 加入文本流
+				this.container.style.display = "block";
+			}
+			// 启动定时器
+			this.startAutoPlay();
+		}
+	}
+	// section-header的元素及数据
+	var header = {
+		// 轮播图元素数组
+		sliders: toArray(document.getElementById( "headerSlide" ).firstElementChild.children),
+		// 焦点按钮外容器
+		controls: document.getElementById("headerControls"),
+		// 提示文字元素
+		title : document.getElementById( "headerTitle" ),
+		// 焦点按钮元素数组
+		pagers: toArray(document.getElementById("headerControls").getElementsByTagName("a")),
+		// section内容器
+		container: document.getElementById("headerContainer")
+	}
+	// 头部轮播图基类
+	var HeaderCasousel = function (container, slideArr, controlArr, headerTitle ){
+		AutoPlay.call( this,container, slideArr, controlArr,headerTitle );
+	}
+	// 原型继承
+	HeaderCasousel.prototype = new AutoPlay();
+	// 创建实例继承头部轮播图基类
+	var headerCasousel = new HeaderCasousel( header.container, header.sliders, header.pagers, header.title);
+	// 开启定时器
+	headerCasousel.startAutoPlay();
+
+	addHandler( header.controls, "click", function ( e ) {
+		// 获取触发事件元素
+		var target = e && e.target || window.event.srcElement,
+			index = 0;
+		// 判断触发事件元素是否是否是"A"元素
+		if ( target.nodeName == "A" ) {
+			index = parseInt(target.getAttribute( "data-index" ));
+			// 记录当前index为上一个index
+			headerCasousel.prevIndex = headerCasousel.index;
+			// 执行跳转函数
+			headerCasousel.changeTo( index  );
+		}
+		preventDefault( e );
+	});
+
+	// section-gallery的元素及数据
+	var gallery = {
+		// 轮播图元素数组
+		sliders: toArray(document.getElementById( "gallerySlide" ).firstElementChild.children),
+		// 焦点按钮外容器
+		controls: document.getElementById( "galleryControls" ),
+		// 焦点按钮元素数组
+		pagers: toArray(document.getElementById( "galleryControls" ).getElementsByTagName("a")),
+		// section内容器
+		container: document.getElementById("galleryContainer")
+	}
+	// 画廊轮播图基类
+	var GalleryCasousel = function (container, slideArr, controlArr ){
+		AutoPlay.call( this, container, slideArr, controlArr );
+	}
+	// 原型继承
+	GalleryCasousel.prototype = new AutoPlay();
+	// 创建实例继承画廊轮播图基类
+	var galleryCasousel = new GalleryCasousel(gallery.container, gallery.sliders, gallery.pagers  );
+	// 开启定时器
+	galleryCasousel.startAutoPlay();
+
+	addHandler( gallery.controls, "click", function ( e ) {
+		// 获取触发事件元素
+		var target = e && e.target || window.event.srcElement,
+			// 下标
+			index = 1;
+		// 判断触发事件元素是否是否是"A"元素
+		if ( target.nodeName == "A" ) {
+			index = parseInt(target.getAttribute( "data-index" ));
+			// 记录当前index为上一个index
+			galleryCasousel.prevIndex = galleryCasousel.index;
+			// 执行跳转函数
+			galleryCasousel.changeTo( index  );
+		}
+		preventDefault( e );
+	});
+	
+	// section-version的元素及数据
+	var version = {
+		// 焦点按钮容器
+		verTab: document.getElementById( "S_verTab" ),
+		// 图片展示容器
+		verPanel: document.getElementById( "S_verPanel"),
+		// 存储class属性的字符串
+		dataVer: "ver-b",
+		// 记录点击之前的焦点按钮，默认第一个焦点按钮为第一个
+		oldTab: document.querySelectorAll(".tab")[ 0 ],
+		// section-verion 外容器 
+		container: document.getElementById("versionContainer")
+	}
+	addHandler( version.verTab, "click", function ( e ) {
+		// 获取触发事件元素
+		var target = getTarget( e );
+		// 判断是否为焦点按钮
+		if ( target.getAttribute("data-ver") ) {
+			// 脱离文本流
+			version.container.style.display = "none";
+			// 移除之前显示元素的class属性
+			removeClass(version.verPanel, version.dataVer );
+			// 移除之前焦点的class属性current
+			removeClass(version.oldTab, "current" );
+			// 记录当前target为之前的焦点按钮
+			version.oldTab = target;
+			// 改变存储的当前class属性字符串
+			version.dataVer = "ver-" + target.getAttribute( "data-ver" );
+			// 添加当前显示元素的class属性
+			addClass( version.verPanel, version.dataVer);
+			// 添加当前焦点的class属性current
+			addClass( target, "current" );
+			// 加入文本流
+			version.container.style.display = "block";
+		}	
+		preventDefault( e );
+	});
+
+
+
+	// 执行懒加载函数
 	Echo.init({offset: 0,throttle: 3000 });
-	var osTop = document.documentElement.scrollTop || document.body.scrollTop;
-	document.body.scrollTop = 200;
-	console.log( osTop );
 };
 
 /*************************************************************************************/
@@ -530,86 +754,30 @@ window.onload = function () {
 
 /****************************************************************/
 // todo: 未加载的时候，判断浏览器版本，IE8以下显示提示框
+// 解决方法：
+// <!--[if lt IE 9]>
+// 	<script>window.location='update-browser.html';</script>
+// 	<![endif]-->
 /****************************************************************/
 
-/**
- * 
- * @desc 获取滚动条距顶部的距离
- */
-function getScrollTop() {
-    return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-}
-var requestAnimFrame = (function () {
-    return window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        function (callback) {
-            window.setTimeout(callback, 1000 / 60);
-        };
-})();
-/**
- * 
- * @desc  在${duration}时间内，滚动条平滑滚动到${to}指定位置
- * @param {Number} to 
- * @param {Number} duration 
- */
-function scrollTo(to, duration) {
-    if (duration < 0) {
-        setScrollTop(to);
-        return
-    }
-    var diff = to - getScrollTop();
-    if (diff === 0) return
-    var step = diff / duration * 10;
-    requestAnimationFrame(
-        function () {
-            if (Math.abs(step) > Math.abs(diff)) {
-                setScrollTop(getScrollTop() + diff);
-                return;
-            }
-            setScrollTop(getScrollTop() + step);
-            if (diff > 0 && getScrollTop() >= to || diff < 0 && getScrollTop() <= to) {
-                return;
-            }
-            scrollTo(to, duration - 16);
-        });
-}
-/**
- * 
- * @desc 设置滚动条距顶部的距离
- */
-function setScrollTop(value) {
-    window.scrollTo(0, value);
-    return value;
-}
 
-/**
- * 
- * @desc  获取一个元素的距离文档(document)的位置，类似jQ中的offset()
- * @param {HTMLElement} ele 
- * @returns { {left: number, top: number} }
- */
-function offset(ele) {
-    var pos = {
-        left: 0,
-        top: 0
-    };
-    while (ele) {
-        pos.left += ele.offsetLeft;
-        pos.top += ele.offsetTop;
-        ele = ele.offsetParent;
-    };
-    return pos;
-}
 
 /*滚动节流处理*/
 var timer;
+// 当前滚动高度
 var curScrollTop,
-	fixNarBar = document.getElementById("fixNarBar"),
+	// 固定定位的菜单
+	fixNarBar = document.getElementById("fixNarBar"),		
+	// mix2-index容器
 	S_indexBody = document.getElementById("S_indexBody"),
+	// 存储section集合数组
 	sectionArr = toArray( S_indexBody.children );
+
 window.onscroll = function () {
+	// 记录当前滚动条距离顶部的高度
 	curScrollTop = getScrollTop();
+
+	/*************************垃圾代码*****************************/
 	// 到达section-header
 	if ( curScrollTop >= offset( sectionArr[ 0 ] ).top ) {
 		addClass( fixNarBar, "nav-fix");
@@ -625,7 +793,7 @@ window.onscroll = function () {
 	}
 	// 到达section-awrad
 	if ( curScrollTop >= offset( sectionArr[ 1 ]).top - 300 ) {
-		addClass(sectionArr[ 1 ], "is-visible" );
+		addClass( sectionArr[ 1 ], "is-visible" );
 		addClass( sectionArr[ 2 ], "preload");
 	} 
 
@@ -691,11 +859,7 @@ window.onscroll = function () {
 		addClass(sectionArr[ 13 ], "is-visible" );
 		// addClass( sectionArr[ 14 ], "preload");
 	}
-	// section-version
-	// if (curScrollTop >= offset( sectionArr[ 14 ]).top - 200) {
-	// 	// addClass(sectionArr[ 14 ], "is-visible" );
-	// 	// addClass( sectionArr[ 15 ], "preload");
-	// }
+	/*************************垃圾代码*****************************/
 
     if( timer ) {
     	document.body.style.cssText = "pointer-events: none;";
