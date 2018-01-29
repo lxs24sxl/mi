@@ -5,7 +5,7 @@
 * 工具: 前端业务逻辑工具包 outils
 
 ## 项目预览地址
-[预览地址](https://lxs24sxl.github.io/mi/index.html)
+<a href="https://lxs24sxl.github.io/mi/index.html" target="_blank">预览地址</a>
 
 ## 模块化代码实现
 
