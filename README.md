@@ -5,7 +5,10 @@
 * 工具: 前端业务逻辑工具包 outils
 
 ## 项目预览地址
-[预览地址](https://lxs24sxl.github.io/mi/index.html)
+
+[首页预览地址](https://lxs24sxl.github.io/mi/index.html)
+
+[mix2页面预览地址](https://lxs24sxl.github.io/mi/mix2.html)
 
 ## 模块化代码实现
 
